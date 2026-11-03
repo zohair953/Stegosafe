@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070d1b">
+    <title>StegoSafe | Secure Image Steganography</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="grid-bg"></div>
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="floating-orb orb-one"></div>
+        <div class="floating-orb orb-two"></div>
+        <canvas id="particles"></canvas>
+    </div>
+
+    <header class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">S</div>
+            <span>Stego<span class="blue">Safe</span></span>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#workspace">Workspace</a>
+        </nav>
+
+        <div class="security-badge">
+            <span class="status-dot"></span>
+            LOCAL & SECURE
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="eyebrow">
+                    <span class="pulse-dot"></span>
+                    ADVANCED IMAGE SECURITY PLATFORM
+                </div>
+
+                <h1>
+                    Hide Your Secrets.<br>
+                    <span class="gradient-text">Protect Your Privacy.</span>
+                </h1>
+
+                <p>
+                    Secure your confidential messages inside ordinary images
+                    using advanced LSB steganography and optional AES-256
+                    password encryption.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#workspace" class="btn btn-primary">
+                        Start Hiding Messages →
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        Explore Features
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div>
+                        <h3>256-bit</h3>
+                        <span>AES Encryption</span>
+                    </div>
+                    <div>
+                        <h3>100%</h3>
+                        <span>Local Processing</span>
+                    </div>
+                    <div>
+                        <h3>LSB</h3>
+                        <span>Steganography</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="visual-ring ring-one"></div>
+                <div class="visual-ring ring-two"></div>
+
+                <div class="shield-card">
+                    <div class="shield-glow"></div>
+                    <div class="shield-symbol">⬡</div>
+                    <div class="shield-lock">✓</div>
+                    <h3>SECURE CHANNEL</h3>
+                    <p>ENCRYPTED & HIDDEN</p>
+
+                    <div class="visual-line"></div>
+
+                    <div class="visual-info">
+                        <span>ENCRYPTION</span>
+                        <strong>AES-256</strong>
+                    </div>
+                    <div class="visual-info">
+                        <span>ALGORITHM</span>
+                        <strong>LSB</strong>
+                    </div>
+                    <div class="visual-info">
+                        <span>STATUS</span>
+                        <strong class="green-text">PROTECTED</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section" id="features">
+            <div class="section-heading">
+                <span class="section-label">WHY STEGOSAFE</span>
+                <h2>Powerful Security Features</h2>
+                <p>Everything you need to protect and recover hidden messages.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">◈</div>
+                    <h3>LSB Steganography</h3>
+                    <p>Hide confidential text inside image RGB pixel values.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">♢</div>
+                    <h3>AES-256 Encryption</h3>
+                    <p>Encrypt messages with password-based AES-256 encryption.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⌑</div>
+                    <h3>Private Processing</h3>
+                    <p>All image processing happens locally in your browser.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⇩</div>
+                    <h3>PNG Export</h3>
+                    <p>Download your generated image without losing encoded data.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workspace -->
+        <section class="workspace-section" id="workspace">
+            <div class="section-heading">
+                <span class="section-label">SECURE WORKSPACE</span>
+                <h2>Image Security Studio</h2>
+                <p>Hide a secret message or extract an existing hidden message.</p>
+            </div>
+
+            <div class="workspace">
+                <div class="tabs">
+                    <button class="tab active" id="hideTab" data-tab="hide">
+                        <span>◈</span> Hide Message
+                    </button>
+                    <button class="tab" id="extractTab" data-tab="extract">
+                        <span>⌕</span> Extract Message
+                    </button>
+                </div>
+
+                <!-- Hide Panel -->
+                <div class="tab-panel active" id="hidePanel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Hide Your Secret Message</h3>
+                            <p>Embed your confidential message inside an image.</p>
+                        </div>
+                        <span class="panel-tag">LSB ENCODER</span>
+                    </div>
+
+                    <div class="studio-grid">
+                        <div class="studio-column">
+                            <label class="field-label">01. Select Cover Image</label>
+
+                            <label class="upload-box" for="coverInput" id="coverDrop">
+                                <input type="file" id="coverInput" accept="image/png,image/jpeg,image/webp">
+                                <div class="upload-icon">⇧</div>
+                                <h4>Upload Cover Image</h4>
+                                <p>Drag & drop or click to browse</p>
+                                <span>PNG, JPG, WEBP</span>
+                            </label>
+
+                            <div class="image-preview hidden" id="coverPreview">
+                                <img id="coverImage" alt="Original cover image">
+                                <div class="preview-info">
+                                    <div>
+                                        <strong id="coverName">image.png</strong>
+                                        <span id="coverDimensions"></span>
+                                    </div>
+                                    <button class="remove-btn" id="removeCover" type="button">×</button>
+                                </div>
+                            </div>
+
+                            <label class="field-label message-label">02. Enter Secret Message</label>
+                            <textarea id="secretMessage" placeholder="Write your confidential message here..." maxlength="100000"></textarea>
+                            <div class="textarea-footer">
+                                <span>Your message stays on this device.</span>
+                                <span id="charCount">0 / 100000</span>
+                            </div>
+
+                            <label class="field-label password-label">03. Optional Password Encryption</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="hidePassword" placeholder="Enter encryption password (optional)" autocomplete="new-password">
+                                <button type="button" class="toggle-password" data-target="hidePassword">◉</button>
+                            </div>
+
+                            <p class="helper-text">Leave empty to hide the message without encryption.</p>
+
+                            <button class="btn btn-primary full-btn" id="hideButton">
+                                <span>◈</span> Hide & Generate Image
+                            </button>
+
+                            <div class="status-message hidden" id="hideStatus" role="status"></div>
+                        </div>
+
+                        <div class="studio-column output-column">
+                            <label class="field-label">04. Generated Steganographic Image</label>
+
+                            <div class="output-preview" id="outputPreview">
+                                <div class="empty-state">
+                                    <div class="empty-icon">▧</div>
+                                    <h4>Output Preview</h4>
+                                    <p>Your protected image will appear here.</p>
+                                </div>
+                                <img id="outputImage" class="hidden" alt="Generated steganographic image">
+                            </div>
+
+                            <div class="output-details hidden" id="outputDetails">
+                                <div>
+                                    <span>FILE FORMAT</span>
+                                    <strong>PNG IMAGE</strong>
+                                </div>
+                                <div>
+                                    <span>MESSAGE SIZE</span>
+                                    <strong id="outputSize">0 Bytes</strong>
+                                </div>
+                                <div>
+                                    <span>SECURITY</span>
+                                    <strong id="outputSecurity">PLAIN TEXT</strong>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-download full-btn" id="downloadButton" disabled>
+                                ↓ Download Protected PNG
+                            </button>
+
+                            <div class="capacity-card">
+                                <div class="capacity-top">
+                                    <span>IMAGE CAPACITY</span>
+                                    <strong id="capacityText">Upload an image first</strong>
+                                </div>
+                                <div class="capacity-track">
+                                    <div id="capacityBar"></div>
+                                </div>
+                                <p>Capacity uses 3 RGB channels with 1 bit per channel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Extract Panel -->
+                <div class="tab-panel" id="extractPanel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Recover Hidden Message</h3>
+                            <p>Extract and decrypt a message from a StegoSafe image.</p>
+                        </div>
+                        <span class="panel-tag">LSB DECODER</span>
+                    </div>
+
+                    <div class="studio-grid">
+                        <div class="studio-column">
+                            <label class="field-label">01. Select Steganographic Image</label>
+
+                            <label class="upload-box" for="extractInput" id="extractDrop">
+                                <input type="file" id="extractInput" accept="image/png,image/jpeg,image/webp">
+                                <div class="upload-icon">⇧</div>
+                                <h4>Upload Protected Image</h4>
+                                <p>Drag & drop or click to browse</p>
+                                <span>PNG, JPG, WEBP</span>
+                            </label>
+
+                            <div class="image-preview hidden" id="extractPreview">
+                                <img id="extractImage" alt="Uploaded steganographic image">
+                                <div class="preview-info">
+                                    <div>
+                                        <strong id="extractName">image.png</strong>
+                                        <span id="extractDimensions"></span>
+                                    </div>
+                                    <button class="remove-btn" id="removeExtract" type="button">×</button>
+                                </div>
+                            </div>
+
+                            <label class="field-label password-label">02. Decryption Password</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="extractPassword" placeholder="Enter password if message is encrypted" autocomplete="off">
+                                <button type="button" class="toggle-password" data-target="extractPassword">◉</button>
+                            </div>
+                            <p class="helper-text">Only required when the hidden message is encrypted.</p>
+
+                            <button class="btn btn-primary full-btn" id="extractButton">
+                                ⌕ Extract Hidden Message
+                            </button>
+
+                            <button class="btn btn-secondary full-btn clear-btn" id="clearButton">
+                                ↻ Clear Extraction
+                            </button>
+
+                            <div class="status-message hidden" id="extractStatus" role="status"></div>
+                        </div>
+
+                        <div class="studio-column output-column">
+                            <label class="field-label">03. Recovered Secret Message</label>
+
+                            <div class="recovered-box" id="recoveredBox">
+                                <div class="empty-state">
+                                    <div class="empty-icon">⌑</div>
+                                    <h4>Waiting for Extraction</h4>
+                                    <p>Your recovered message will appear here.</p>
+                                </div>
+                            </div>
+
+                            <div class="recovery-info hidden" id="recoveryInfo">
+                                <div>
+                                    <span>MESSAGE TYPE</span>
+                                    <strong id="recoveryType">PLAIN TEXT</strong>
+                                </div>
+                                <div>
+                                    <span>RECOVERY</span>
+                                    <strong class="green-text">SUCCESSFUL</strong>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-secondary full-btn" id="copyButton" disabled>
+                                ▣ Copy Recovered Message
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="how-section">
+            <div class="section-heading">
+                <span class="section-label">THE TECHNOLOGY</span>
+                <h2>How StegoSafe Works</h2>
+                <p>A simple process to protect and recover confidential information.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span>01</span>
+                    <h3>Choose Image</h3>
+                    <p>Select a cover image from your device.</p>
+                </div>
+                <div class="step-card">
+                    <span>02</span>
+                    <h3>Secure Message</h3>
+                    <p>Enter a message and optionally encrypt it.</p>
+                </div>
+                <div class="step-card">
+                    <span>03</span>
+                    <h3>Hide Data</h3>
+                    <p>LSB encoding stores data inside RGB pixels.</p>
+                </div>
+                <div class="step-card">
+                    <span>04</span>
+                    <h3>Recover Message</h3>
+                    <p>Upload the PNG and extract your message.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Notice -->
+        <section class="notice-section">
+            <div class="notice-icon">ⓘ</div>
+            <div>
+                <h3>Security & Privacy Notice</h3>
+                <p>
+                    StegoSafe processes images and messages locally in your browser.
+                    Resizing, editing, lossy compression or converting an image to JPEG
+                    can destroy hidden data. Steganography hides a message but does not
+                    guarantee that the image cannot be analyzed.
+                    AES-CBC provides confidentiality but does not independently
+                    authenticate ciphertext. Use trusted images and strong passwords.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#" class="logo">
+            <div class="logo-icon">S</div>
+            <span>Stego<span class="blue">Safe</span></span>
+        </a>
+        <p>© 2026 StegoSafe. Secure your digital world.</p>
+        <span class="footer-status"><span class="status-dot"></span> LOCAL PROCESSING ACTIVE</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
